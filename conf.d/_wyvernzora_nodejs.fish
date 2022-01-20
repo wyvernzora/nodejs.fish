@@ -4,14 +4,13 @@ set -x NPM_PREFIX $HOME/.npm
 
 # Add npm global modules to PATH
 fish_add_path $NPM_PREFIX/bin
-set -ax MANPATH $NPM_PREFIX/share/man
 
 # Set NODE_PATH to be able to require globally installed modules
-set -ax NODE_PATH $NPM_PREFIX/lib/node_modules
+set -agx NODE_PATH $NPM_PREFIX/lib/node_modules
 
 # If in interactive shell, this is probably a development environment
 if status --is-interactive
-    set -x NODE_ENV development
+    set -gx NODE_ENV development
 end
 
 # My npm shortcuts
